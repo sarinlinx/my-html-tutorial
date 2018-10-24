@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="../../_css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../../_css/style.css">
+
+    <title>Canvas Drawing Text</title>
+</head>
+
+<body>
+    <a href="../../index.html">Home page</a>
+
+
+      <section class="container">
+          <h1>Drawing Text</h1>
+          <div class="row">
+              <div class="col-6">
+                  <p>Top methods to draw text.</p>
+                  <p>font - defines the font properties for the text</p>
+                  <p>fillText(text,x,y) - draws "filled" text on the canvas. X and Y position the text.</p>
+                  <p>strokeText(text,x,y) - draws text on the canvas (no fill)</p>
+              </div>
+              <div class="col-6"><pre class="example"><span class="code-html">&lt;canvas id="myCanvas4" width="200" height="100" style="border:1px solid #000000;"&gt;</span>
+
+<span class="code-js">var canvas = document.getElementById("myCanvas");
+var ctx = canvas.getContext("2d");
+<span class="standout">ctx.font = "30px Arial";
+ctx.fillText("Hello World",10,50);
+<span class="code-comment">//ctx.strokeText("Hello World",10,50); </span>
+</span></span></pre>
+              </div>
+          </div>
+
+
+          <h4>Example (filled text)</h4>
+          <div class="row">
+              <div class="col">
+                  <canvas id="myCanvas4" class="bg-white" width="200" height="100" style="border:1px solid #000000;">
+                  <script>
+                  var canvas = document.getElementById("myCanvas4");
+      var ctx = canvas.getContext("2d");
+      ctx.font = "30px Arial";
+      ctx.fillText("Hello World",10,50);
+                  </script>
+              </div>
+          </div>
+
+          <h4>Example (stroked text)</h4>
+          <div class="row">
+              <div class="col">
+                  <canvas id="myCanvas5" class="bg-white" width="200" height="100" style="border:1px solid #000000;">
+                  <script>
+                  var canvas = document.getElementById("myCanvas5");
+      var ctx = canvas.getContext("2d");
+      ctx.font = "30px Arial";
+      ctx.strokeText("Hello World",10,50);
+                  </script>
+              </div>
+          </div>
+        </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <section class="container">
+            <h1>Add color and center the text</h1>
+            <div class="row">
+                <div class="col-6">
+                    <p>Add fillStyle = "red" to fill in the text.</p>
+                    <p>To fillText, center with canvas.width/2, canvas.height/2.</p>
+                </div>
+                <div class="col-6"><pre class="example"><span class="code-html">&lt;canvas id="myCanvas6" width="200" height="100" style="border:1px solid #000000;"&gt;</span>
+
+<span class="code-js">var canvas = document.getElementById("myCanvas6");
+var ctx = canvas.getContext("2d");
+<span class="standout">ctx.font = "30px Comic Sans MS";
+ctx.fillStyle = "red";
+ctx.textAlign = "center";
+ctx.fillText("Hello World", canvas.width/2, canvas.height/2);</span></span></pre>
+                </div>
+            </div>
+
+
+            <h4>Example (filled text)</h4>
+            <div class="row">
+                <div class="col">
+<canvas id="myCanvas6" class="bg-white" width="200" height="100" style="border:1px solid #000000;">
+
+<script>
+var canvas = document.getElementById("myCanvas6");
+var ctx = canvas.getContext("2d");
+ctx.font = "30px Comic Sans MS";
+ctx.fillStyle = "red";
+ctx.textAlign = "center";
+ctx.fillText("Hello World", canvas.width/2, canvas.height/2);</script>
+                </div>
+            </div>
+          </section>
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="../../_js/jquery.js"></script>
+    <script src="../../_js/bootstrap.bundle.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="../../_css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../../_css/style.css">
+
+    <title>Canvas</title>
+</head>
+
+<body>
+    <a href="../../index.html">Home page</a>
+
+
+
+
+    <section class="container">
+        <h1>Canvas overview</h1>
+        <div class="row">
+            <div class="col">
+                <p>Canvas is an HTML element: &lt;canvas&gt;. It is only a container for graphics.</p>
+                <p>JavaScript is used to draw elements within the Canvas element.</p>
+                <p>Canvas can be used for:</p>
+                <ul>
+                    <li>drawing colorful text with animation</li>
+                    <li>graphs</li>
+                    <li>interactivly respond to JavaScript events</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="container">
+        <h1>Canvas References</h1>
+        <div class="row">
+            <div class="col">
+                <ul>
+                    <li><a href="https://www.w3schools.com/graphics/canvas_reference.asp">Canvas Reference</a></li>
+                    </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="container">
+        <h1>Simple example</h1>
+        <div class="row">
+            <div class="col-6">
+                <p>Basic HTMl example</p>
+                <p>The Canvas element must have an id attribute so it can be referred to by JavaScript.</p>
+                <p>Width and Height are necessary to define the size of the Canvas.</p>
+            </div>
+            <div class="col-6">
+                <pre class="example"><span class="code-html">&lt;canvas id="myCanvas" width="200" height="100"&gt;&lt;/canvas&gt;</span></pre>
+            </div>
+        </div>
+
+        <h4>Adding a border</h4>
+        <div class="row">
+            <div class="col-6">
+                <p>There's no border by default. Use a style attribute to add one.</p>
+            </div>
+            <div class="col-6">
+                <pre class="example"><span class="code-html">&lt;canvas id="myCanvas" width="200" height="100" <span class="standout">style="border:1px solid #000000;"</span>&gt;&lt;/canvas&gt;</span></pre>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+    <section class="container">
+        <h1>Drawing</h1>
+        <h3>Create the HTML Canvas element</h3>
+        <div class="row">
+            <div class="col-6">
+                <p>First, create the HTML element.</p>
+            </div>
+            <div class="col-6">
+                <pre class="example"><span class="code-html">&lt;canvas id="myCanvas" width="200" height="100"&gt;&lt;/canvas&gt;</span></pre>
+            </div>
+        </div>
+
+        <h3>Locate the Canvas element in JavaScript</h3>
+        <div class="row">
+            <div class="col-6">
+                <p>JavaScript is used to draw. The first step is to locate it.</p>
+            </div>
+            <div class="col-6">
+                <pre class="example"><span class="code-js">var canvas = document.getElementById("myCanvas");</span></pre>
+            </div>
+        </div>
+
+        <h3>Create a drawing Object</h3>
+        <div class="row">
+            <div class="col-6">
+                <p>The getContext() is a built-in HTML object, with properties and methods for drawing.</p>
+            </div>
+            <div class="col-6">
+                <pre class="example"><span class="code-js">var ctx = canvas.getContext("2d");</span></pre>
+            </div>
+        </div>
+
+        <h3>Draw</h3>
+        <h4>Part 1</h4>
+        <div class="row">
+            <div class="col-6">
+                <p>Set the fill style of the drawing object to a color.</p>
+                <p>NOTE: This must come BEFORE the drawing of the Object.</p>
+                <p>The fillStyle property can be a CSS color, a gradient, or a pattern. The default fillStyle is black.</p>
+                <p>This fills the rectangle you just drew with the color red.</p>
+            </div>
+            <div class="col-6">
+                <pre class="example"><span class="code-js">ctx.fillStyle = "#FF0000"; </span></pre>
+            </div>
+        </div>
+        <h4>Part 2</h4>
+        <div class="row">
+            <div class="col-6">
+                <p>Use use fillRect() to draw a rectangle.</p>
+            </div>
+            <div class="col-6">
+                <pre class="example"><span class="code-js">ctx.fillRect(0,0,150,75);</span></pre>
+            </div>
+        </div>
+
+        <h4>Example</h4>
+        <div class="row">
+            <div class="col">
+                <canvas id="myCanvas" class="bg-white" width="200" height="100" style="border:1px solid #000000;"></canvas>
+                <script>
+                    var canvas = document.getElementById("myCanvas");
+                    var ctx = canvas.getContext("2d");
+                    ctx.fillStyle = "#FF0000";
+                    ctx.fillRect(0, 0, 150, 75);
+                </script>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <section class="container">
+        <h1>Coordinates</h1>
+        <div class="row">
+            <div class="col">
+                <p>The upper-left corner of the canvas has the coordinates (0,0).</p>
+                <p>Drawing a rectangle would use fillRect(0,0,150,75).</p>
+                <p>This means: Start at the upper-left corner (0,0) and draw a 150x75 pixels rectangle.</p>
+            </div>
+        </div>
+
+        <h3>Draw a line</h3>
+        <div class="row">
+            <div class="col-6">
+                <p>First locate the element and create a drawing Object.</p>
+            </div>
+            <div class="col-6">
+                <pre class="example"><span class="code-js">var canvas = document.getElementById("myCanvas");
+var ctx = canvas.getContext("2d");</span></pre>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-6">
+                <p>Next, use moveTo(x,y) to define the starting point.</p>
+                <p>Then use lineTo(x,y) to define the ending point.</p>
+                <p>Finally, to actually draw the line, use a method such as stroke().</p>
+            </div>
+            <div class="col-6">
+                <pre class="example"><span class="code-js">var canvas = document.getElementById("myCanvas");
+var ctx = canvas.getContext("2d");
+<span class="standout">ctx.moveTo(0,0);
+ctx.lineTo(200,100);
+ctx.stroke();</span></span></pre>
+            </div>
+        </div>
+
+        <h4>Example</h4>
+        <div class="row">
+            <div class="col">
+                <canvas id="myCanvas2" class="bg-white" width="200" height="100" style="border:1px solid #000000;"></canvas>
+                <script>
+                    var canvas = document.getElementById("myCanvas2");
+                    var ctx = canvas.getContext("2d");
+                    ctx.fillStyle = "#ffffff";
+                    ctx.moveTo(0, 0);
+                    ctx.lineTo(200, 100);
+                    ctx.stroke();
+                </script>
+            </div>
+        </div>
+
+    </section>
+
+
+
+
+
+
+
+    <section class="container">
+        <h1>Draw a Circle</h1>
+        <div class="row">
+            <div class="col-6">
+                <p>Use beginPath() to begin the path.</p>
+                <p>arc(x,y,r,startangle,endangle) - creates an arc/curve.</p>
+                <p>The x and y parameters define the x- and y-coordinates of the center of the circle. The r parameter defines the radius of the circle. </p>
+                <p>To create a circle with arc(): Set start angle to 0 and end angle to 2*Math.PI.</p>
+
+            </div>
+            <div class="col-6">
+                <pre class="example"><span class="code-html">&lt;canvas id="myCanvas3" width="200" height="100" style="border:1px solid #000000;"&gt;</span>
+
+<span class="code-js">var canvas = document.getElementById("myCanvas3");
+var ctx = canvas.getContext("2d");
+<span class="standout">ctx.beginPath();
+ctx.arc(95,50,40,0,2*Math.PI);
+ctx.stroke();</span></span></pre>
+            </div>
+        </div>
+
+
+        <h4>Example</h4>
+        <div class="row">
+            <div class="col">
+                <canvas id="myCanvas3" class="bg-white" width="200" height="100" style="border:1px solid #000000;">
+                <script>
+                var canvas = document.getElementById("myCanvas3");
+var ctx = canvas.getContext("2d");
+ctx.beginPath();
+ctx.arc(95,50,40,0,2*Math.PI);
+ctx.stroke();
+                </script>
+            </div>
+        </div>
+      </section>
+
+
+
+
+
+
+
+
+
+
+    <script src="../../_js/jquery.js"></script>
+    <script src="../../_js/bootstrap.bundle.js"></script>
+</body>
+
+</html>
